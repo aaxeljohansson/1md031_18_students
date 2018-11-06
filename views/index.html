@@ -1,9 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-    </body>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title> RAW Sauce Burger </title>
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+  <main>
+
+    <h1> Welcome to RAW Sauce website </h1>
+
+    <section class="selection">
+      <h2> Select burger </h2>
+      <p> This is where you select your burger </p>
+
+      <table>
+        <thead align="center">
+          <tr>
+            <th><h3> Burger 1 </h3></th>
+
+            <th><h3> Burger 2 </h3></th>
+
+            <th><h3> Burger 3 </h3></th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <tr align="center">
+            <td><img src="https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg" width="240" height="135"</img></td>
+
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc" width="240" height="135"</img></td>
+
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQj5XVTVh5x9v_KcLgiEVRLXhLYo0YPH700-xhpSG296hM-nL" width="240" height="135"</img></td>
+          </tr>
+
+          <tr>
+            <td><ul style="list-style-type:circle">
+              <li> 100% Ground Beef - Rare </li>
+              <li> Bacon </li>
+              <li> Chipotle Dressing </li>
+              <li><section class="gluten"> Brioche Bread </section></li>
+            </ul></td>
+
+            <td><ul style="list-style-type:circle">
+              <li> 100% Ground Beef - Medium Rare </li>
+              <li> Onion rings </li>
+              <li> BBQ Dressing </li>
+              <li><section class="glutenfree"> Gluten-Free Corn Bread </section></li>
+            </ul></td>
+
+            <td><ul style="list-style-type:circle">
+              <li> 100% Ground Beef - Medium </li>
+              <li> Pickled onion </li>
+              <li> Regular Dressing </li>
+              <li><section class="gluten"> Three Kinds of Flour Bread </section></li>
+            </ul></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </section>
+
+  </main>
+</body>
+
+
+<footer>
+  <section class="customerinfo">
+    <h3> Customer information </h3>
+    <p> This is where you provide necessary information </p>
+
+    <h4> Delivery information: </h4>
+    <form>
+    <p>
+      <label for="fullname"> Full Name </label><br>
+      <input type="text" id="fullname" name="fn" required="required" placeholder="First- and lastname">
+    </p>
+
+    <p>
+      <label for="email"> E-mail Adress </label><br>
+      <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
+    </p>
+
+    <p>
+      <label for="street"> Street </label><br>
+      <input type="text" id="street" name="st" required="required" placeholder="Street name">
+    </p>
+
+    <p>
+      <label for="house"> House </label><br>
+      <input type="number" id="house" name="ho" required="required" placeholder="House number">
+    </p>
+
+    <p>
+      <form action onkeypress="">
+          <legend> Select your gender </legend>
+          <input checked="checked" type="radio" name="gender" value="male"> Male </input><br>
+          <input type="radio" name="gender" value="female"> Female </input><br>
+          <input type="radio" name="gender" value="notsure"> Not sure </input>
+      </form>
+    </p>
+
+    <p>
+      <label for="paymentmethod"> Payment method </label><br>
+      <select id="paymentmethod" name="pm">
+        <option> Swish </option>
+        <option selected="selected"> Klarna Betala Direkt </option>
+        <option> Klarna Delbetalning </option>
+        <option> Credit Card </option>
+      </select>
+    </p>
+  </form>
+
+    <button section class="button" width="200" height="50" type="submit"><img src="http://www.jmkxyy.com/sales-order-icon/sales-order-icon-22.jpg" width="40" height="40"> Place Order </button>
+
+  </section>
+</footer>
+
 </html>
