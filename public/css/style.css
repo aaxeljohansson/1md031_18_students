@@ -1,0 +1,35 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gluten {
+    color: #0082C8;
+}
+
+.selection {
+    background-color: #000000;
+    color: #ffffff
+}
+
+::selection {
+    color: #23bd15
+}
+
+
+.button {
+      background-color: #0082C8;
+      vertical-align: center;
+      text-align: center;
+}
+
+button:hover {
+      background-color: #065a87
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    2em;
+    color=(0,0,0)
+}
