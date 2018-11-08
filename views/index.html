@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://vuejs.org/js/vue.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/js_script.js"></script>
+  <script src="js/vue_script.js"></script>
   <title> RAW Sauce Burger </title>
   <meta charset="utf-8"/>
 </head>
@@ -31,11 +34,11 @@
 
         <tbody>
           <tr align="center">
-            <td><img src="https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg" width="480" height="270"</img></td>
+            <td><img id="burger1pic" src="https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg" width="480" height="270"</img></td>
 
-            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc" width="480" height="270"</img></td>
+            <td><img id="burger2pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc" width="480" height="270"</img></td>
 
-            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQj5XVTVh5x9v_KcLgiEVRLXhLYo0YPH700-xhpSG296hM-nL" width="480" height="270"</img></td>
+            <td><img id="burger3pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQj5XVTVh5x9v_KcLgiEVRLXhLYo0YPH700-xhpSG296hM-nL" width="480" height="270"</img></td>
           </tr>
 
           <tr>
@@ -50,14 +53,14 @@
 
             <td><ul>
               <li> 100% Ground Beef - Medium Rare </li>
-              <li> Onion rings </li>
+              <li> Onion Rings </li>
               <li> BBQ Dressing </li>
               <li><span class="glutenfree"> Gluten-Free Corn Bread </span></li>
             </ul></td>
 
             <td><ul>
               <li> 100% Ground Beef - Medium </li>
-              <li> Pickled onion </li>
+              <li> Pickled Onions </li>
               <li> Regular Dressing </li>
               <li><div class="gluten"> Three Kinds of Flour Bread
                 <span class="glutentext"> Contains Gluten </span>
@@ -73,8 +76,6 @@
   </main>
 </body>
 
-
-<footer>
   <section class="customerinfo">
     <h3> Customer information </h3>
     <p> This is where you provide necessary information </p>
@@ -124,6 +125,9 @@
     <button section class="button" width="200" height="50" type="submit"><img src="http://www.jmkxyy.com/sales-order-icon/sales-order-icon-22.jpg" width="40" height="40"> Place Order </button>
 
   </section>
+
+<footer>
+    <p> RAW Sauce Burgers &trade; </p>
 </footer>
 
 </html>
