@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://vuejs.org/js/vue.js"></script>
+  <script src="https://vuejs.org/js/vue.js" defer></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="js/js_script.js"></script>
-  <script src="js/vue_script.js"></script>
+  <script src="js/js_script.js" defer></script>
+  <script src="js/vue_script.js" defer></script>
   <title> RAW Sauce Burger </title>
   <meta charset="utf-8"/>
 </head>
@@ -15,63 +15,35 @@
       <img src="https://i.imgur.com/1NLTXH0.png" width="1880" height="370"</img>
     </section>
 
-    <section class="selection">
-      <h2> Select burger </h2>
-      <p> This is where you select your burger </p>
+    <div id="vue_container">
+    <section id="burgers" class="selection">
+      <h2> {{headingtext}} </h2>
+      <p> {{descriptivetext}} </p>
 
-      <div id="myID">
-      </div>
+        <div v-for = "burger in burgers">
 
-
-        <div class="wrapper">
-          <div class="box a1">Burger 1</div>
-          <div class="box a2">Burger 2</div>
-          <div class="box a3">Burger 3</div>
-        </div>
-
-        <div class="pictures">
-          <div class="pic b1"><img id="burger1pic" src="https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg" width="480" height="270"</img></div>
-          <div class="pic b2"><img id="burger2pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc" width="480" height="270"</img></div>
-          <div class="pic b3"><img id="burger3pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQj5XVTVh5x9v_KcLgiEVRLXhLYo0YPH700-xhpSG296hM-nL" width="480" height="270"</img></div>
-        </div>
-
-        <div class="descriptiontext">
-          <div class="desctext c1">
-            <ul>
-              <li> 100% Ground Beef - Rare </li>
-              <li> Bacon </li>
-              <li> Chipotle Dressing </li>
-              <li><div class="gluten"> Brioche Bread
-              <span class="glutentext"> Contains Gluten </span>
-              </div></li>
-            </ul>
-          </div>
-
-          <div class="desctext c2">
-            <ul>
-              <li> 100% Ground Beef - Medium Rare </li>
-              <li> Onion Rings </li>
-              <li> BBQ Dressing </li>
-              <li><span class="glutenfree"> Gluten-Free Corn Bread </span></li>
-            </ul>
-          </div>
-
-          <div class="desctext c3">
-            <ul>
-              <li> 100% Ground Beef - Medium </li>
-              <li> Pickled Onions </li>
-              <li> Regular Dressing </li>
-              <li><div class="gluten"> Three Kinds of Flour Bread
-              <span class="glutentext"> Contains Gluten </span>
-              </div></li>
-            </ul>
-          </div>
+              <div class="d-flex flex-wrap">
+                <div class="p-2"> <h2> {{burger.name}} </h2> </div>    <!-- Burger Name-->
+                <div class="p-2"> <img src= "burger.img"> </div>       <!-- Burger pic-->
+                <div class="p-2">
+                  <ul>
+                    <li> {{burger.steakGrade}} </li>                   <!-- Burger ingredients-->
+                    <li> {{burger.extras}} </li>                       <!-- Burger ingredients-->
+                    <li> {{burger.dressing}} </li>                     <!-- Burger ingredients-->
+                    <li> {{burger.bread}} </li>                        <!-- Burger ingredients-->
+                    <li> {{burger.calories}} kCal </li>                     <!-- Burger ingredients-->
+                  </ul>
+                </div>
+                <div class="p-2"> <button> ORDER </button> </div>
+              </div>
 
         </div>
 
     </section>
+    </div>
 
   </main>
+
 </body>
 
   <section class="customerinfo">
