@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="js/deli-very.js" defer></script>
+
   <script src="https://vuejs.org/js/vue.js" defer></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/menu.js" defer></script>
   <script src="js/js_script.js" defer></script>
   <script src="js/vue_script.js" defer></script>
+
   <title> RAW Sauce Burger </title>
   <meta charset="utf-8"/>
 </head>
@@ -16,88 +21,114 @@
     </section>
 
     <div id="vue_container">
-    <section id="burgers" class="selection">
-      <h2> {{headingtext}} </h2>
-      <p> {{descriptivetext}} </p>
 
-        <div v-for = "burger in burgers">
+      <section class="burgerSelection">
+        <h2> {{headingtext}} </h2>
+        <p> {{descriptivetext}} </p>
 
-              <div class="d-flex flex-wrap">
-                <div class="p-2"> <h2> {{burger.name}} </h2> </div>    <!-- Burger Name-->
-                <div class="p-2"> <img src= "burger.img"> </div>       <!-- Burger pic-->
-                <div class="p-2">
-                  <ul>
-                    <li> {{burger.steakGrade}} </li>                   <!-- Burger ingredients-->
-                    <li> {{burger.extras}} </li>                       <!-- Burger ingredients-->
-                    <li> {{burger.dressing}} </li>                     <!-- Burger ingredients-->
-                    <li> {{burger.bread}} </li>                        <!-- Burger ingredients-->
-                    <li> {{burger.calories}} kCal </li>                     <!-- Burger ingredients-->
-                  </ul>
-                </div>
-                <div class="p-2"> <button> ORDER </button> </div>
-              </div>
+        <div class="grid">
+          <div v-for = "burger in burgers">
 
+            <div class="burgerName" align="center"> <h2> {{burger.name}} </h2> </div>    <!-- Burger Name-->
+            <div class="burgerPic"> <img :src= "burger.img" width="480" height="270"> </div>       <!-- Burger pic-->
+            <div class="burgerIngredients">
+              <ul>
+                <li> {{burger.steakGrade}} </li>                   <!-- Burger ingredients-->
+                <li> {{burger.extras}} </li>                       <!-- Burger ingredients-->
+                <li> {{burger.dressing}} </li>                     <!-- Burger ingredients-->
+                <li> {{burger.bread}} </li>                        <!-- Burger ingredients-->
+                <li> {{burger.calories}} kCal </li>                <!-- Burger ingredients-->
+              </ul>
+            </div>
+            <div class="checkbox"> <input v-model="pickedBurger" :value= "burger.name" type="checkbox" width="100" height="100"> Select </input> </div>
+
+          </div>
         </div>
 
-    </section>
-    </div>
-
-  </main>
-
-</body>
+      </section>
 
   <section class="customerinfo">
     <h3> Customer information </h3>
     <p> This is where you provide necessary information </p>
 
     <h4> Delivery information: </h4>
+
+
     <form>
-    <p>
-      <label for="fullname"> Full Name </label><br>
-      <input type="text" id="fullname" name="fn" required="required" placeholder="First- and lastname">
-    </p>
+      <p>
+        <label for="fullname"> Full Name </label><br>
+        <input v-model="fullName" type="text" id="fullname" name="fn" required="required" placeholder="First- and lastname">
+      </p>
 
-    <p>
-      <label for="email"> E-mail Adress </label><br>
-      <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
-    </p>
+      <p>
+        <label for="email"> E-mail Adress </label><br>
+        <input v-model="email" type="text" id="email" name="em" required="required" placeholder="E-mail address">
+      </p>
 
-    <p>
-      <label for="street"> Street </label><br>
-      <input type="text" id="street" name="st" required="required" placeholder="Street name">
-    </p>
+      <!-- <p>
+        <label for="street"> Street </label><br>
+        <input v-model="street" type="text" id="street" name="st" required="required" placeholder="Street name">
+      </p> -->
 
-    <p>
-      <label for="house"> House </label><br>
-      <input type="number" id="house" name="ho" required="required" placeholder="House number">
-    </p>
+      <!-- <p>
+        <label for="house"> House </label><br>
+        <input v-model="house" type="number" id="house" name="ho" required="required" placeholder="House number">
+      </p> -->
 
-    <p>
-      <form action onkeypress="">
+      <p>
+        <form action onkeypress="">
           <legend> Select your gender </legend>
-          <input checked="checked" type="radio" name="gender" value="male"> Male </input><br>
-          <input type="radio" name="gender" value="female"> Female </input><br>
-          <input type="radio" name="gender" value="notsure"> Not sure </input>
-      </form>
+          <input v-model="pickedGender" checked="checked" type="radio" name="gender" value="Male"> Male </input><br>
+          <input v-model="pickedGender" type="radio" name="gender" value="Female"> Female </input><br>
+          <input v-model="pickedGender" type="radio" name="gender" value="Non-Binary"> Non-Binary </input>
+        </form>
+      </p>
+
+      <p>
+        <label for="paymentmethod"> Payment method </label><br>
+        <select v-model="selectedPaymentMethod" id="paymentmethod" name="pm">
+          <option> Swish </option>
+          <option selected="selected"> Klarna Betala Direkt </option>
+          <option> Klarna Delbetalning </option>
+          <option> Credit Card </option>
+        </select>
+      </p>
+    </form>
+
+
+    <h1> Click in the map! </h1>
+    <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+    <div class="view-box">
+      <div id="dots" v-on:click="displayOrder">
+          <div
+            v-for="order in orders"
+            v-bind:style="{ left: orders.details.x + 'px', top: orders.details.y + 'px'}">
+             T
+          </div>
+      </div>
+    </div>
+
+
+
+    <button v-on:click="orderPlaced()" class="button" width="200" height="50" type="submit">
+      <img src="http://www.jmkxyy.com/sales-order-icon/sales-order-icon-22.jpg" width="40" height="40">
+      Place Order
+    </button>
+
+    <p v-for = "(value, key) in customerInformationArray">
+      {{key}}: {{value}}
     </p>
 
-    <p>
-      <label for="paymentmethod"> Payment method </label><br>
-      <select id="paymentmethod" name="pm">
-        <option> Swish </option>
-        <option selected="selected"> Klarna Betala Direkt </option>
-        <option> Klarna Delbetalning </option>
-        <option> Credit Card </option>
-      </select>
-    </p>
-  </form>
 
-    <button section class="button" width="200" height="50" type="submit"><img src="http://www.jmkxyy.com/sales-order-icon/sales-order-icon-22.jpg" width="40" height="40"> Place Order </button>
+</section>
 
-  </section>
+  <!-- vuecontainer div end -->
+    </div>
+  </main>
+</body>
 
 <footer>
-    <p> RAW Sauce Burgers &trade; </p>
+  <p> RAW Sauce Burgers &trade; </p>
 </footer>
 
 </html>

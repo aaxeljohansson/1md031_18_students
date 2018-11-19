@@ -1,0 +1,7 @@
+var burgers = [
+  { "name": "Burger 1", "kCal": 700, "img": "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg", "steakGrade": "Rare", "extras": "Bacon", "dressing": "Chipotle Dressing", "bread": "Brioche Bread", "gluten": true, "lactose": false, "stock": 5},
+  { "name": "Burger 2", "kCal": 300, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc", "steakGrade": "Medium Rare", "extras": "Onion Rings", "dressing": "BBQ Dressing", "bread": "Corn Bread", "gluten": false, "lactose": false, "stock": 10},
+  { "name": "Burger 3", "kCal": 600, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQj5XVTVh5x9v_KcLgiEVRLXhLYo0YPH700-xhpSG296hM-nL", "steakGrade": "Medium", "extras": "Pickled Onions", "dressing": "Regular Dressing", "bread": "Three Kinds of Flour Bread", "gluten": true,"lactose": false, "stock": 0},
+  { "name": "Burger 4", "kCal": 1000, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPoiNDBHrh_1u1X0SSw3c4M5-Z7jTBc7T7UPsxX8qKUvEijwhc", "steakGrade": "Well", "extras": "Blue Cheese", "dressing": "Chili Dressing", "bread": "Gluten Free Bread", "gluten": false, "lactose": true, "stock": 1},
+  { "name": "Burger 5", "kCal": 500, "img": "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/2017/01/27000212/bp-testing-1-1.jpg", "steakGrade": "Medium", "extras": "Double Cheddar",	"dressing": "Regular Dressing", "bread": "Regular Bread", "gluten": true, "lactose": true, "stock": 0}
+]
