@@ -101,7 +101,7 @@
     <div class="view-box">
       <div id="dots" v-on:click="displayOrder">
           <div
-            v-for="order in orders"
+            v-for="(order, key) in orders"
             v-bind:style="{ left: orders.details.x + 'px', top: orders.details.y + 'px'}">
              T
           </div>

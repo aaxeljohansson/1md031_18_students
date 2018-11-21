@@ -2,6 +2,7 @@
 //
 // Vue.use(Layout);
 
+var lastOrder = 0;
 
 var vm = new Vue({
 //Here comes the optional elements of the Vue object
@@ -62,22 +63,27 @@ var vm = new Vue({
       this.addOrder();
     },
 
+    getNext: function () {
+       lastOrder = lastOrder +1
+       return lastOrder;
+     },
 
     addOrder: function (event) {
-      socket.emit("addOrder", [{
-        details: this.displayOrders,
+      socket.emit("addOrder", {
+        orderId: this.getNext(),
+        details: this.orders.details,
         orderItems: this.pickedBurger,
-        orderInfo: this.customerInformationArray
-      }]);
+        customerInfo: this.customerInformationArray
+      });
     },
 
     displayOrder: function (event) {
-        this.orders = ({
+        this.orders = {
         details: {
           x: event.clientX-10 - event.currentTarget.getBoundingClientRect().left,
           y: event.clientY-10 - event.currentTarget.getBoundingClientRect().top
         }
-        });
+        };
     }
   }
 
