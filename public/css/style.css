@@ -4,6 +4,12 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.dispatcherOrders {
+  border-bottom: solid;
+  border-color: black;
+  border-width: thin;
+}
+
 .logo {
    display: flex;
    justify-content: space-evenly;

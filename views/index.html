@@ -111,12 +111,11 @@
 
 
     <button v-on:click="orderPlaced()" class="button" width="200" height="50" type="submit">
-      <img src="http://www.jmkxyy.com/sales-order-icon/sales-order-icon-22.jpg" width="40" height="40">
       Place Order
     </button>
 
     <p v-for = "(value, key) in customerInformationArray">
-      {{key}}: {{value}}
+      {{key}}: {{value.toString()}}
     </p>
 
 

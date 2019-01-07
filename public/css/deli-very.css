@@ -3,6 +3,20 @@ body {
 	padding: 0;
 }
 
+.dispatcherOrders {
+  border-bottom: solid;
+  border-color: black;
+  border-width: thin;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+.customerInfoName{
+	padding-left: 25px;	
+	font-style: italic;
+	font-weight: lighter;
+}
+
 .view-box {
 	width: 90%;
 	height: 50vh;

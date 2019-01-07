@@ -61,6 +61,11 @@ var vm = new Vue({
       this.customerInformationArray.Gender = this.pickedGender;
       this.customerInformationArray.Payment = this.selectedPaymentMethod;
       this.addOrder();
+      this.pickedBurger=[];
+      this.fullName='';
+      this.email='';
+      this.pickedGender='';
+      this.selectedPaymentMethod='';
     },
 
     getNext: function () {
@@ -70,10 +75,10 @@ var vm = new Vue({
 
     addOrder: function (event) {
       socket.emit("addOrder", {
-        orderId: this.getNext(),
-        details: this.orders.details,
-        orderItems: this.pickedBurger,
-        customerInfo: this.customerInformationArray
+          orderId: this.getNext(),
+          details: this.orders.details,
+          orderItems: this.pickedBurger,
+          customerInfo: [this.customerInformationArray.Name, this.customerInformationArray.Email, this.customerInformationArray.Gender, this.customerInformationArray.Payment]
       });
     },
 
